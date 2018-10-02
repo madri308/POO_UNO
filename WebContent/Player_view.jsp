@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-Welcome to the best UNO game.
+Welcome to the best UNO game. Vamos a ver si funciona.
 </body>
 </html>
