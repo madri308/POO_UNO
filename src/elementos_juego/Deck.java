@@ -20,7 +20,8 @@ public class Deck {
 		 //Esto crea las cartas normales.
 		for (String color:colors) {
 			for (int number = 0; number < 10; number++) {
-				Card card = new Card(color,number);
+				SimpleCard card = new SimpleCard(color);
+				card.setNumber(number);
 				deck.add(card);
 			}
 		}

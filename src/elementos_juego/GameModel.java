@@ -21,11 +21,11 @@ public class GameModel {
 		return game;
 	}
 	
-	public boolean searchWinner() {
+	public void searchWinner() {
 		for ( Player player : players) {
-			if (!(player.ge)) {
+			//if (!(player)) {
 				
-			}
+			
 		}
 	}
 

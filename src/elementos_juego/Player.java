@@ -31,8 +31,11 @@ public class Player {
 	}
 	
 	public void putCard(int posCardInHand) {
-		Card lastCard =GameModel.getInstance().graveyard.pop();
+		Card lastCard = GameModel.getInstance().graveyard.pop();
 		Card cardPlayed = hand.get(posCardInHand);
+		if(GameModel.getInstance().graveyard.pop() instanceof SimpleCard ) {
+			
+		}
 		if(lastCard.getColor() == cardPlayed.getColor() || lastCard.getNumber() == cardPlayed.getNumber()) {
 			GameModel.getInstance().graveyard.push(cardPlayed);
 			hand.remove(posCardInHand);
