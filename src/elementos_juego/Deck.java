@@ -4,8 +4,16 @@ import java.util.Collections;
 import java.util.List;
 
 public class Deck {
-	List<Card> deck;
+	private List<Card> deck;
 	
+	public List<Card> getDeck() {
+		return deck;
+	}
+
+	public void setDeck(List<Card> deck) {
+		this.deck = deck;
+	}
+
 	public Deck() {
 		String[] colors = {"blue","red","green","yellow"};
 		
