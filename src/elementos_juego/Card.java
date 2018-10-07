@@ -1,9 +1,19 @@
 package elementos_juego;
 
 public class Card {
-	String color;
-	int number;
+	private String color;
+	private int number;
 	
+	public String getColor() {
+		return color;
+	}
+
+
+	public int getNumber() {
+		return number;
+	}
+
+
 	public Card(String pColor, int pNumber){
 		color = pColor;
 		number = pNumber;

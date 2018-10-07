@@ -21,5 +21,12 @@ public class GameModel {
 		return game;
 	}
 	
+	public boolean searchWinner() {
+		for ( Player player : players) {
+			if (!(player.ge)) {
+				
+			}
+		}
+	}
 
 }
