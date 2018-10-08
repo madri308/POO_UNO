@@ -9,13 +9,9 @@ public class Player {
 	public String getName() {
 		return name;
 	}
-
-
 	public List<Card> getHand() {
 		return hand;
 	}
-
-
 	public Player(String pName, Deck actualDeck) {
 		name = pName;
 		for(int counter = 0;  counter < 7; counter++ ) {
@@ -31,25 +27,37 @@ public class Player {
 	}
 	
 	public void putCard(int posCardInHand) {
-		if(GameModel.getInstance().graveyard.pop() instanceof SimpleCard && hand.get(posCardInHand) instanceof SimpleCard) {
-			SimpleCard lastCard = (SimpleCard) GameModel.getInstance().graveyard.pop();
-			//SimpleCard cardPlayed = hand.get(posCardInHand);
-			//if(lastCard.getColor() == cardPlayed.getColor() || ((SimpleCard) lastCard).getNumber() == ((SimpleCard) cardPlayed).getNumber()) {
-			//	GameModel.getInstance().graveyard.push(cardPlayed);
+		Card lastCard = GameModel.getInstance().graveyard.pop();
+		Card cardInHand = hand.get(posCardInHand);
+		//CASOS
+		if(cardInHand instanceof ChangeColor || cardInHand instanceof Take4) {//CARTA EN MANO CAMBIA COLOR
+			cardInHand.setColor("User Choose");
+			if(cardInHand instanceof Take4) {
+				((Take4) cardInHand).makeAction();
+				GameModel.getInstance().graveyard.push(cardInHand);
 			}
-			hand.remove(posCardInHand);
+			GameModel.getInstance().graveyard.push(cardInHand);
+			hand.remove(hand.indexOf(cardInHand));
 		}
-		//else if(true) {
-			//Si es una carta especial
-		
-		/*else {
-			//Que diga que no es posible hacer esa jugada
-			return;
+		else if(cardInHand instanceof SimpleCard){//CARTA EN MANO SIMPLE
+			if(cardInHand.getColor() == lastCard.getColor() || ((SimpleCard) cardInHand).getNumber() == ((SimpleCard) lastCard).getNumber()) {
+				GameModel.getInstance().graveyard.push(cardInHand);
+				hand.remove(hand.indexOf(cardInHand));
+			}else {
+				//RETORNA QUE ESA CARTA NO ES VALIDA
+			}
+		}else {//CARTA EN MANO ESPECIAL
+			if(cardInHand.getColor() == lastCard.getColor()) {
+				((iActionable) cardInHand).makeAction();
+				GameModel.getInstance().graveyard.push(cardInHand);
+				hand.remove(hand.indexOf(cardInHand));
+			}else {
+				//RETORNA QUE ESA CARTA NO ES VALIDA
+			}
 		}
-		*/
+			
+	}
 		
-	
-	
 	public void UNO() {
 		if(hand.size()==1) {
 			//Aqui hace algo
