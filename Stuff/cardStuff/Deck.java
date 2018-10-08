@@ -1,4 +1,4 @@
-package elementos_juego;
+package cardStuff;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,8 +1,8 @@
-package elementos_juego;
+package cardStuff;
 
-public class Take2 extends Card implements iActionable{
+public class Reverse extends Card implements iActionable{
 
-	public Take2() {
+	public Reverse() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

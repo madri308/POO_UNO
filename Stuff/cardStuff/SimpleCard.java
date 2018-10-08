@@ -1,4 +1,4 @@
-package elementos_juego;
+package cardStuff;
 
 public class SimpleCard extends Card{
 	

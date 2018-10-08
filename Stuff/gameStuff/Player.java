@@ -1,6 +1,14 @@
-package elementos_juego;
+package gameStuff;
 
 import java.util.List;
+
+import MVCStuff.GameModel;
+import cardStuff.Card;
+import cardStuff.ChangeColor;
+import cardStuff.Deck;
+import cardStuff.SimpleCard;
+import cardStuff.Take4;
+import cardStuff.iActionable;
 
 public class Player {
 	private String name;
@@ -19,13 +27,10 @@ public class Player {
 			actualDeck.getDeck().remove(0);
 		}
 	}
-	
-	
 	public void takeCard(Deck actualDeck) {
 		hand.add(actualDeck.getDeck().get(0));
 		actualDeck.getDeck().remove(0);
 	}
-	
 	public void putCard(int posCardInHand) {
 		Card lastCard = GameModel.getInstance().graveyard.pop();
 		Card cardInHand = hand.get(posCardInHand);

@@ -1,4 +1,12 @@
-package elementos_juego;
+package gameStuff;
+
+import cardStuff.Card;
+import cardStuff.ChangeColor;
+import cardStuff.Deck;
+import cardStuff.Jump;
+import cardStuff.Reverse;
+import cardStuff.SimpleCard;
+import cardStuff.Take2;
 
 public class Pruebas {
 

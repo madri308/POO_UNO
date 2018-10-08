@@ -2,6 +2,7 @@
     <wb-module deploy-name="UNO_proyecto_2_POO">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/Stuff"/>
         <property name="context-root" value="UNO_proyecto_2_POO"/>
         <property name="java-output-path" value="/UNO_proyecto_2_POO/build/classes"/>
     </wb-module>

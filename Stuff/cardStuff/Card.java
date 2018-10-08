@@ -1,4 +1,4 @@
-package elementos_juego;
+package cardStuff;
 
 public class Card {
 	private String color;
@@ -7,10 +7,9 @@ public class Card {
 	public String getColor() {
 		return color;
 	}
-
-
-	public Card(String pColor){
-		color = pColor;
+	public void setColor(String color) {
+		this.color = color;
 	}
+	
 
 }

@@ -1,8 +1,8 @@
-package elementos_juego;
+package cardStuff;
 
-public class Jump extends Card implements iActionable{
+public class Take4 extends Card implements iActionable{
 
-	public Jump() {
+	public Take4() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

@@ -1,7 +1,11 @@
-package elementos_juego;
+package MVCStuff;
 
 import java.util.List;
 import java.util.Stack;
+
+import cardStuff.Card;
+import cardStuff.Deck;
+import gameStuff.Player;
 
 public class GameModel {
 	private List<Player> players;
