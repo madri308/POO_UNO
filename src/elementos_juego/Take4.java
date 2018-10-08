@@ -2,8 +2,8 @@ package elementos_juego;
 
 public class Take4 extends Card implements iActionable{
 
-	public Take4(String pColor) {
-		super(pColor);
+	public Take4() {
+		super();
 		// TODO Auto-generated constructor stub
 	}
 

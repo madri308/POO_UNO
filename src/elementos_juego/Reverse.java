@@ -2,8 +2,8 @@ package elementos_juego;
 
 public class Reverse extends Card implements iActionable{
 
-	public Reverse(String pColor) {
-		super(pColor);
+	public Reverse() {
+		super();
 		// TODO Auto-generated constructor stub
 	}
 

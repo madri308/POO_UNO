@@ -31,25 +31,24 @@ public class Player {
 	}
 	
 	public void putCard(int posCardInHand) {
-		Card lastCard = GameModel.getInstance().graveyard.pop();
-		Card cardPlayed = hand.get(posCardInHand);
-		if(GameModel.getInstance().graveyard.pop() instanceof SimpleCard ) {
-			
-		}
-		if(lastCard.getColor() == cardPlayed.getColor() || lastCard.getNumber() == cardPlayed.getNumber()) {
-			GameModel.getInstance().graveyard.push(cardPlayed);
+		if(GameModel.getInstance().graveyard.pop() instanceof SimpleCard && hand.get(posCardInHand) instanceof SimpleCard) {
+			SimpleCard lastCard = (SimpleCard) GameModel.getInstance().graveyard.pop();
+			//SimpleCard cardPlayed = hand.get(posCardInHand);
+			//if(lastCard.getColor() == cardPlayed.getColor() || ((SimpleCard) lastCard).getNumber() == ((SimpleCard) cardPlayed).getNumber()) {
+			//	GameModel.getInstance().graveyard.push(cardPlayed);
+			}
 			hand.remove(posCardInHand);
 		}
-		else if(true) {
+		//else if(true) {
 			//Si es una carta especial
-		}
+		
 		/*else {
 			//Que diga que no es posible hacer esa jugada
 			return;
 		}
 		*/
 		
-	}
+	
 	
 	public void UNO() {
 		if(hand.size()==1) {

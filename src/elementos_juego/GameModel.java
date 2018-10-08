@@ -23,9 +23,7 @@ public class GameModel {
 	
 	public void searchWinner() {
 		for ( Player player : players) {
-			//if (!(player)) {
-				
-			
+			//if (!(player)) {	
 		}
 	}
 
