@@ -11,6 +11,7 @@ public class GameModel {
 	private List<Player> players;
 	private Deck actualDeck;
 	public Stack<Card> graveyard;
+	private int actualTurn;
 
 	private static GameModel game;
 	
