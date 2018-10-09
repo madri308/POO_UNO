@@ -1,5 +1,7 @@
 package cardStuff;
 
+import MVCStuff.GameModel;
+
 public class Reverse extends Card implements iActionable{
 
 	public Reverse() {
@@ -8,8 +10,8 @@ public class Reverse extends Card implements iActionable{
 	}
 
 	public void makeAction() {
-		// TODO Auto-generated method stub
-		
+		//Le cambio el signo a la direccion del juego
+		GameModel.getInstance().setDireccionJuego(GameModel.getInstance().getDireccionJuego()*-1);		
 	}
 
 }

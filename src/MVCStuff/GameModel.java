@@ -16,7 +16,52 @@ public class GameModel {
 	private List<Player> players;
 	private Deck actualDeck;
 	public Stack<Card> graveyard;
+	private int turnoJugadorActual = 0;
+	private int direccionJuego = 1;
+	private int turnoJugadorSiguiente;
 
+	public int getTurnoJugadorSiguiente() {
+		return turnoJugadorActual;
+	}
+	public int getTurnoJugadorActual() {
+		return turnoJugadorActual;
+	}
+	public void setTurnoJugadorActual(int salto) {//salto solo va a ser 1, -1 o 0
+		int turnoSiguiente = turnoJugadorActual+ 1*direccionJuego; //Se fija cual va a ser el siguiente jugador 
+		//Si esta en logica positiva
+		if(turnoSiguiente >= players.size()) {
+			turnoJugadorActual = 0 + salto;
+			turnoJugadorSiguiente = turnoSiguiente +1*direccionJuego;
+			return;
+		}
+		//Si esta en logica negativa
+		if(turnoJugadorActual < 0) {
+			turnoJugadorActual = players.size()-1 + salto;
+			turnoJugadorSiguiente = turnoSiguiente +1*direccionJuego;
+			return;
+		}
+		turnoJugadorActual = turnoJugadorActual + direccionJuego + salto;
+		
+		if(turnoSiguiente +1*direccionJuego >= players.size()) {//Son comparaciones para que el turno siguiente no se caiga en los extremos
+			turnoJugadorSiguiente = 0;
+			return;
+		}
+		if(turnoSiguiente +1*direccionJuego < 0) {//Son comparaciones para que el turno siguiente no se caiga en los extremos
+			turnoJugadorSiguiente = players.size()-1;
+			return;
+		}
+		
+		turnoJugadorSiguiente = turnoSiguiente +1*direccionJuego;
+	}
+	public List<Player> getPlayers() {
+		return players;
+	}
+	public int getDireccionJuego() {
+		return direccionJuego;
+	}
+	public void setDireccionJuego(int direccionJuego) {
+		this.direccionJuego = direccionJuego;
+	}
 	private static GameModel game;
 	
 	public static GameModel getInstance() {
