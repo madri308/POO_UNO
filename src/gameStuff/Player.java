@@ -1,8 +1,10 @@
 package gameStuff;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import MVCStuff.GameController;
+import MVCStuff.GameView;
 import cardStuff.Card;
 import cardStuff.Deck;
 
@@ -10,26 +12,31 @@ import cardStuff.Deck;
 public class Player {
 	
 	private String name;
-	private List<Card> hand;
-	public boolean ready = false;
-	public boolean UNO = false;
+	private List<Card> hand = new ArrayList<Card>();
 	
-	public void start() {
-		ready = true;
+	public Player(String pName) {
+		setName(pName);
+		GameController.getInstance().actionAddMe(this);
 	}
+	public boolean isUNO() {
+		return UNO;
+	}
+	public void join() {
+		
+	}
+	public void setUNO(boolean pUNO) {
+		UNO = pUNO;
+	}
+	private boolean UNO = false;
 	
 	public String getName() {
 		return name;
 	}
+	public void setName(String pName) {
+		name = pName;
+	}
 	public List<Card> getHand() {
 		return hand;
-	}
-	public Player(String pName, Deck actualDeck) {
-		name = pName;
-		for(int counter = 0;  counter < 7; counter++ ) {
-			hand.add(actualDeck.getDeck().get(0));
-			
-		}
 	}
 	public void takeCard() {
 		GameController.getInstance().actionTakeCard(this);
@@ -40,7 +47,9 @@ public class Player {
 	public void UNO() {
 		GameController.getInstance().actionUNO(this);
 		}
-	
+	public void start() {
+		GameController.getInstance().actionStart();
+	}
 	
 }
 

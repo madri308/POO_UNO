@@ -1,5 +1,6 @@
 package MVCStuff;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
@@ -13,17 +14,21 @@ import gameStuff.Player;
 
 public class GameModel {
 	
-	private List<Player> players;
+	private List<Player> players = new ArrayList<Player>();
 	private Deck actualDeck;
 	public Stack<Card> graveyard;
-
-	private static GameModel game;
+	private GameController controller;
+	
+	private static GameModel model;
 	
 	public static GameModel getInstance() {
-		if (game == null) {
-			game = new GameModel();
+		if (model == null) {
+			model = new GameModel();
 		}
-		return game;
+		return model;
+	}
+	public void setController(GameController pController) {
+		controller = pController;
 	}
 	public void setDeck() {
 		if(actualDeck == null || actualDeck.getDeck().size() == 1) {
@@ -38,9 +43,9 @@ public class GameModel {
 		GameController.getInstance().updatePlayer(player);
 	}
 	
-	public void giveCard(Player player, int cant) {
-		if(player.UNO) {
-			player.UNO = false;
+	public void giveCards(Player player, int cant) {
+		if(player.isUNO()) {
+			player.setUNO(false); 
 		}
 		for(int cards = 0 ; cards<cant ; cards++) {
 			player.getHand().add(actualDeck.getDeck().get(0));
@@ -85,27 +90,34 @@ public class GameModel {
 				//RETORNA QUE ESA CARTA NO ES VALIDA
 			}
 		}
-			
+	}
+	public void addPlayer(Player player) {
+		players.add(player);
 	}
 	public void startGame() {
-		while(players.size()<2) {
-			return;
-		}setDeck();//COMIENZA EL JUEGO
+		if(players.size() > 1) {
+			setDeck();//COMIENZA EL JUEGO
+			for(Player player:players) {
+				giveCards(player,7);
+			}
+		}
 	}
+	
+	
 	public void validateUNO(Player player) {
 		boolean validUNO = false;
 		if(player.getHand().size() == 1) {
-			player.UNO = true;
+			player.setUNO(true);
 			validUNO = true;
 		}else{
 			for(Player randomPlayer:players) {
-				if(randomPlayer.getHand().size() == 1 && randomPlayer.UNO == false) {
-					giveCard(randomPlayer,4);//LE DA AL PLAYER QUE TIENE UNA CARTA PERO NUNCA DIJO
-					randomPlayer.UNO = true;
+				if(randomPlayer.getHand().size() == 1 && randomPlayer.isUNO() == false) {
+					giveCards(randomPlayer,4);//LE DA AL PLAYER QUE TIENE UNA CARTA PERO NUNCA DIJO
+					player.setUNO(true);
 					validUNO = true;
 				}
 			}if(!validUNO) {
-				giveCard(player,4);//LE DA AL PLAYER QUE DIJO UNO CARTAS
+				giveCards(player,4);//LE DA AL PLAYER QUE DIJO UNO CARTAS
 			}
 		}
 	}

@@ -20,7 +20,7 @@ public class Deck {
 		String[] colors = {"blue","red","green","yellow"};
 		for (String color:colors) {
 			//SE CREAN 4(CEROS, CAMBIA COLOR, COME4)
-				
+			
 			SimpleCard zeroCard = new SimpleCard();
 			zeroCard.setNumber(0);
 			zeroCard.setColor(color);

@@ -1,5 +1,8 @@
 package gameStuff;
 
+import MVCStuff.GameController;
+import MVCStuff.GameModel;
+import MVCStuff.GameView;
 import cardStuff.Card;
 import cardStuff.ChangeColor;
 import cardStuff.Deck;
@@ -10,40 +13,18 @@ import cardStuff.Take2;
 
 public class Pruebas {
 
-	public Pruebas() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public static void main(String[] args) {
-		
-		
+		/*
 		Deck deckPrueba = new Deck();
 		java.util.List<Card> listaDeck = deckPrueba.getDeck();
-		int sc = 0;
-		int cc = 0;
-		int j = 0;
-		int r = 0;
-		int t2 = 0;
-		int t4 = 0;
+		int sc = 0, cc = 0, j = 0, r = 0, t2 = 0, t4 = 0;
 		for(int i = 0; i<listaDeck.size(); i++) {
-			if(listaDeck.get(i) instanceof SimpleCard) {
-				sc++;
-			}
-			else if(listaDeck.get(i) instanceof ChangeColor) {
-				cc++;
-			}
-			else if(listaDeck.get(i) instanceof Jump) {
-				j++;
-			}
-			else if(listaDeck.get(i) instanceof Reverse) {
-				r++;
-			}
-			else if(listaDeck.get(i) instanceof Take2) {
-				t2++;
-			}
-			else {
-				t4++;
-			}
+			if(listaDeck.get(i) instanceof SimpleCard) {sc++;}
+			else if(listaDeck.get(i) instanceof ChangeColor) {cc++;}
+			else if(listaDeck.get(i) instanceof Jump) {j++;}
+			else if(listaDeck.get(i) instanceof Reverse) {r++;}
+			else if(listaDeck.get(i) instanceof Take2) {t2++;}
+			else {t4++;}
 		}
 		System.out.println("Cartas Simples: "+sc);
 		System.out.println("Cambia Color: "+cc);
@@ -52,8 +33,21 @@ public class Pruebas {
 		System.out.println("Come2: "+t2);
 		System.out.println("Come4: "+t4);
 		System.out.println(sc+cc+j+r+t2+t4+" cartas en total");
+		*/
 		
-
+		GameModel model = GameModel.getInstance();
+		GameView view = GameView.getInstance();
+		GameController controller = GameController.getInstance();
+		model.setController(controller);
+		view.setModel(model);
+		controller.setMV(model, view);
+				
+		Player player1 = new Player("jugador1");
+		System.out.println(player1.getName());
+		player1.start();
+		System.out.println(player1.getHand());
+		Player player2 = new Player("jugador2");
+		player1.start();
+		System.out.println(player1.getHand());
 	}
-
 }
