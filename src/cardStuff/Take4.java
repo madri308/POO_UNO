@@ -1,6 +1,8 @@
 package cardStuff;
 
-public class Take4 extends Card implements iActionable{
+import MVCStuff.GameModel;
+
+public class Take4 extends Card {
 
 	public Take4() {
 		super();
@@ -8,7 +10,12 @@ public class Take4 extends Card implements iActionable{
 	}
 
 	public void makeAction() {
-		// TODO Auto-generated method stub
+		// Le agrega 4 cartas al jugador siguiente
+		GameModel.getInstance().giveCards(GameModel.getInstance().getPlayers().get( GameModel.getInstance().getTurnoJugadorSiguiente()), 4);
+		
+		//Se brinca al jugador siguiente
+		GameModel.getInstance().setTurnoJugadorActual(GameModel.getInstance().getDireccionJuego());
+
 		
 	}
 

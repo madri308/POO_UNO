@@ -1,5 +1,7 @@
 package cardStuff;
 
+import MVCStuff.GameModel;
+
 public class Take2 extends Card implements iActionable{
 
 	public Take2() {
@@ -8,7 +10,8 @@ public class Take2 extends Card implements iActionable{
 	}
 
 	public void makeAction() {
-		// TODO Auto-generated method stub
+		// Le agrega 2 cartas al jugador siguiente
+		GameModel.getInstance().giveCards(GameModel.getInstance().getPlayers().get( GameModel.getInstance().getTurnoJugadorSiguiente()), 2);
 		
 	}
 
