@@ -14,7 +14,7 @@ public class Take4 extends Card {
 		GameModel.getInstance().giveCards(GameModel.getInstance().getPlayers().get( GameModel.getInstance().getTurnoJugadorSiguiente()), 4);
 		
 		//Se brinca al jugador siguiente
-		GameModel.getInstance().setTurnoJugadorActual(GameModel.getInstance().getDireccionJuego());
+		GameModel.getInstance().setTurnoJugadorActual();
 
 		
 	}

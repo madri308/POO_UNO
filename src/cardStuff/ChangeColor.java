@@ -9,8 +9,7 @@ public class ChangeColor extends Card {
 
 	public void makeAction(String color) {
 		// le pone color a la carta
-		super.setColor(color);
-		
+		super.setColor(color);		
 	}
 
 }

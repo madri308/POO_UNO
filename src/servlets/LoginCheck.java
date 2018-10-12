@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import gameStuff.Player;
+
 /**
  * Servlet implementation class LoginCheck
  */
@@ -39,7 +41,8 @@ public class LoginCheck extends HttpServlet {
 		
 		String player_name = request.getParameter("pName");
 		if (player_name != "") {
-			response.sendRedirect("Player_view.jsp");
+			Player jugador = new Player(player_name);
+			response.sendRedirect("Player_view.html");
 		}
 	}
 		
