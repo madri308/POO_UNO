@@ -7,8 +7,8 @@ import gameStuff.Player;
 
 public class GameController {
 	
-	private GameModel model;
-	private GameView view;
+	private GameModel model = GameModel.getInstance();
+	private GameView view = GameView.getInstance();
 	
 	private static GameController game;
 	

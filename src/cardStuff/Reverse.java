@@ -14,4 +14,9 @@ public class Reverse extends Card implements iActionable{
 		GameModel.getInstance().setDireccionJuego(GameModel.getInstance().getDireccionJuego()*-1);		
 	}
 
+	public void makeAction(String pColor) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

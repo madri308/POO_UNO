@@ -17,4 +17,9 @@ public class Take2 extends Card implements iActionable{
 		
 	}
 
+	public void makeAction(String pColor) {
+		// No hace nada
+		
+	}
+
 }

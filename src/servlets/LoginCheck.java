@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import MVCStuff.GameController;
 import MVCStuff.GameModel;
 import MVCStuff.GameView;
 import MVCStuff.PlayerView;
@@ -41,14 +42,18 @@ public class LoginCheck extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		String player_name = request.getParameter("pName");
-		if (player_name != "") {
-			Player jugador = new Player(player_name);
-			PlayerView vistaJugador = new PlayerView(player_name);			
-			GameView.getInstance().getPlayersView().add(vistaJugador);
-			GameModel.getInstance().getPlayers().add(jugador);
+		if (player_name != "") {		
+			
+			Player jugador = new Player(player_name);	
+			
+			PlayerView vistaJugador = new PlayerView(player_name);
+			GameView.getInstance().getPlayersView().add(vistaJugador);			
+			vistaJugador.convertToJson();
+			
 			response.sendRedirect("Player_view.html");
+
 		}
 	}
 		

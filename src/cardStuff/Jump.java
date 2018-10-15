@@ -15,4 +15,9 @@ public class Jump extends Card implements iActionable{
 		
 	}
 
+	public void makeAction(String pColor) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
