@@ -23,41 +23,50 @@ public class GameModel {
 	
 	private static GameModel model;
 	private int turnoJugadorActual = 0;
+<<<<<<< HEAD
 	private int direccionJuego;
 	private int turnoJugadorSiguiente;
+=======
+	private int direccionJuego = 1;
+>>>>>>> 7170da944784d91c1e35f8d183a0d3118dcb92d4
 
-	public int getTurnoJugadorSiguiente() {
-		return turnoJugadorActual;
+	public int getTurnoJugadorSiguiente() {//Pone el turno del jugador siguiente. Este se usa para cuando algun jugador tiene que comer cartas gracias al +4 o +2
+		if(direccionJuego == 1) {//Si la logica es positiva
+			if(turnoJugadorActual == players.size()-1) {
+				return 0;
+			}
+			else return turnoJugadorActual+1;
+		}
+		else {//Entonces la logica es negativa
+			if (turnoJugadorActual == 0) {//
+				return players.size()-1;
+			}
+			else {
+				return turnoJugadorActual-1;
+			}
+		}
+		
 	}
 	public int getTurnoJugadorActual() {
 		return turnoJugadorActual;
 	}
-	public void setTurnoJugadorActual(int salto) {//salto solo va a ser 1, -1 o 0
-		int turnoSiguiente = turnoJugadorActual+ 1*direccionJuego; //Se fija cual va a ser el siguiente jugador 
-		//Si esta en logica positiva
-		if(turnoSiguiente >= players.size()) {
-			turnoJugadorActual = 0 + salto;
-			turnoJugadorSiguiente = turnoSiguiente +1*direccionJuego;
-			return;
+	public void setTurnoJugadorActual() {
+		if(direccionJuego == 1) {//Si la logica es positiva
+			if(turnoJugadorActual == players.size()-1) {
+				turnoJugadorActual = 0;
+			}
+			else turnoJugadorActual = turnoJugadorActual+1;
 		}
-		//Si esta en logica negativa
-		if(turnoJugadorActual < 0) {
-			turnoJugadorActual = players.size()-1 + salto;
-			turnoJugadorSiguiente = turnoSiguiente +1*direccionJuego;
-			return;
-		}
-		turnoJugadorActual = turnoJugadorActual + direccionJuego + salto;
-		
-		if(turnoSiguiente +1*direccionJuego >= players.size()) {//Son comparaciones para que el turno siguiente no se caiga en los extremos
-			turnoJugadorSiguiente = 0;
-			return;
-		}
-		if(turnoSiguiente +1*direccionJuego < 0) {//Son comparaciones para que el turno siguiente no se caiga en los extremos
-			turnoJugadorSiguiente = players.size()-1;
-			return;
+		else {//Entonces la logica es negativa
+			if (turnoJugadorActual == 0) {//
+				turnoJugadorActual = players.size()-1;
+			}
+			else {
+				turnoJugadorActual = turnoJugadorActual-1;
+			}
 		}
 		
-		turnoJugadorSiguiente = turnoSiguiente +1*direccionJuego;
+
 	}
 	public List<Player> getPlayers() {
 		return players;
@@ -113,6 +122,7 @@ public class GameModel {
 			}
 			graveyard.push(cardInHand);
 			player.getHand().remove(posCardInHand);
+			setTurnoJugadorActual();//AQUI se cambia el turno al del siguiente jugador, con cualquier carta que se ponga, se cambia el turno
 			
 			updatePlayers();//ACTUALIZA
 			updatePlayer(player);
@@ -121,6 +131,7 @@ public class GameModel {
 			if(cardInHand.getColor() == lastCard.getColor() || ((SimpleCard) cardInHand).getNumber() == ((SimpleCard) lastCard).getNumber()) {
 				graveyard.push(cardInHand);
 				player.getHand().remove(posCardInHand);
+				setTurnoJugadorActual();//AQUI se cambia el turno al del siguiente jugador, con cualquier carta que se ponga, se cambia el turno
 				
 				updatePlayers();//ACTUALIZA
 				updatePlayer(player);
@@ -132,6 +143,7 @@ public class GameModel {
 				((iActionable) cardInHand).makeAction();
 				graveyard.push(cardInHand);
 				player.getHand().remove(posCardInHand);
+				setTurnoJugadorActual();//AQUI se cambia el turno al del siguiente jugador, con cualquier carta que se ponga, se cambia el turno
 				
 				updatePlayers();//ACTUALIZA
 				updatePlayer(player);

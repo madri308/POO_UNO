@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import MVCStuff.GameController;
-import MVCStuff.GameView;
 import cardStuff.Card;
-import cardStuff.Deck;
 
 
 public class Player {

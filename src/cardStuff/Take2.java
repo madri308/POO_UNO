@@ -13,6 +13,13 @@ public class Take2 extends Card implements iActionable{
 		// Le agrega 2 cartas al jugador siguiente
 		GameModel.getInstance().giveCards(GameModel.getInstance().getPlayers().get( GameModel.getInstance().getTurnoJugadorSiguiente()), 2);
 		
+		GameModel.getInstance().setTurnoJugadorActual();
+		
+	}
+
+	public void makeAction(String pColor) {
+		// No hace nada
+		
 	}
 
 }
