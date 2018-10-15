@@ -7,6 +7,8 @@ import java.util.Stack;
 import cardStuff.Card;
 import cardStuff.ChangeColor;
 import cardStuff.Deck;
+import cardStuff.Jump;
+import cardStuff.Reverse;
 import cardStuff.SimpleCard;
 import cardStuff.Take4;
 import cardStuff.iActionable;
@@ -21,7 +23,7 @@ public class GameModel {
 	
 	private static GameModel model;
 	private int turnoJugadorActual = 0;
-	private int direccionJuego = 1;
+	private int direccionJuego;
 	private int turnoJugadorSiguiente;
 
 	public int getTurnoJugadorSiguiente() {
@@ -63,8 +65,8 @@ public class GameModel {
 	public int getDireccionJuego() {
 		return direccionJuego;
 	}
-	public void setDireccionJuego(int direccionJuego) {
-		this.direccionJuego = direccionJuego;
+	public void setDireccionJuego(int direccion) {
+		direccionJuego = direccion;
 	}
 	private static GameModel game;
 	
@@ -147,6 +149,7 @@ public class GameModel {
 			for(Player player:players) {
 				giveCards(player,7);
 			}
+			System.out.println(actualDeck.getDeck().size());
 		}
 	}
 	
