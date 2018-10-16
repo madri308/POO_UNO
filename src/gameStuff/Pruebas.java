@@ -1,15 +1,8 @@
 package gameStuff;
 
-import MVCStuff.GameController;
-import MVCStuff.GameModel;
-import MVCStuff.GameView;
 import cardStuff.Card;
-import cardStuff.ChangeColor;
-import cardStuff.Deck;
-import cardStuff.Jump;
-import cardStuff.Reverse;
+
 import cardStuff.SimpleCard;
-import cardStuff.Take2;
 
 public class Pruebas {
 
@@ -41,16 +34,12 @@ public class Pruebas {
 		System.out.println(sc+cc+j+r+t2+t4+" cartas en total");
 		*/
 		
-		GameModel model = GameModel.getInstance();
-		GameView view = GameView.getInstance();
-		GameController controller = GameController.getInstance();
-		model.setController(controller);
-		view.setModel(model);
-		controller.setMV(model, view);
+		
 				
 		Player player1 = new Player("jugador1");
 		player1.start();
 		//System.out.println(player1.getHand());
+		@SuppressWarnings("unused")
 		Player player2 = new Player("jugador2");
 		player1.start();
 		for(Card card:player1.getHand()) {

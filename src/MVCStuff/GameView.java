@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameView {
-	private GameModel model = GameModel.getInstance();
+	//private GameModel model = GameModel.getInstance();
 	private List<PlayerView> PlayersView = new ArrayList<PlayerView>();
 	
 	public List<PlayerView> getPlayersView() {
@@ -18,9 +18,5 @@ public class GameView {
 			view = new GameView();
 		}
 		return view;
-	}
-	
-	public void setModel(GameModel pModel) {
-		model = pModel;
 	}
 }

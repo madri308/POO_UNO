@@ -7,8 +7,6 @@ import java.io.IOException;
 import java.util.List;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-
 import cardStuff.Card;
 
 public class PlayerView {//Esta clase es la que se va a enviar a java script

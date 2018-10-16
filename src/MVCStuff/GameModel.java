@@ -7,8 +7,6 @@ import java.util.Stack;
 import cardStuff.Card;
 import cardStuff.ChangeColor;
 import cardStuff.Deck;
-import cardStuff.Jump;
-import cardStuff.Reverse;
 import cardStuff.SimpleCard;
 import cardStuff.Take4;
 import cardStuff.iActionable;
@@ -19,16 +17,11 @@ public class GameModel {
 	private List<Player> players = new ArrayList<Player>();
 	private Deck actualDeck;
 	public Stack<Card> graveyard;
-	private GameController controller;
+	//private GameController controller = GameController.getInstance();
 	
-	private static GameModel model;
+	private static GameModel model = null;
 	private int turnoJugadorActual = 0;
-<<<<<<< HEAD
-	private int direccionJuego;
-	private int turnoJugadorSiguiente;
-=======
 	private int direccionJuego = 1;
->>>>>>> 7170da944784d91c1e35f8d183a0d3118dcb92d4
 
 	public int getTurnoJugadorSiguiente() {//Pone el turno del jugador siguiente. Este se usa para cuando algun jugador tiene que comer cartas gracias al +4 o +2
 		if(direccionJuego == 1) {//Si la logica es positiva
@@ -77,16 +70,12 @@ public class GameModel {
 	public void setDireccionJuego(int direccion) {
 		direccionJuego = direccion;
 	}
-	private static GameModel game;
 	
 	public static GameModel getInstance() {
 		if (model == null) {
 			model = new GameModel();
 		}
 		return model;
-	}
-	public void setController(GameController pController) {
-		controller = pController;
 	}
 	public void setDeck() {
 		if(actualDeck == null || actualDeck.getDeck().size() == 1) {

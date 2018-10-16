@@ -9,8 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import MVCStuff.GameController;
-import MVCStuff.GameModel;
+
 import MVCStuff.GameView;
 import MVCStuff.PlayerView;
 import gameStuff.Player;
@@ -44,8 +43,11 @@ public class LoginCheck extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String player_name = request.getParameter("pName");
+		
+		
 		if (player_name != "") {		
 			
+			@SuppressWarnings("unused")
 			Player jugador = new Player(player_name);	
 			
 			PlayerView vistaJugador = new PlayerView(player_name);
