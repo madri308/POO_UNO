@@ -19,9 +19,9 @@ public class PlayerView {//Esta clase es la que se va a enviar a java script
 		playerName = pPlayerName;
 	}
 	
-	public boolean convertToJson() {
+	public boolean convertToJson(String IpAddress) {
 		try {
-			File file = new File(playerName + ".json");
+			File file = new File(IpAddress + ".json");
 			BufferedWriter bw;
 			Gson json = new Gson();
 			json.toJson(this);

@@ -1,30 +1,23 @@
 package servlets;
 
-
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-import MVCStuff.GameView;
-import MVCStuff.PlayerView;
-import gameStuff.Player;
-
 /**
- * Servlet implementation class LoginCheck
+ * Servlet implementation class ComuPlayerView
  */
-@WebServlet("/LoginCheck")
-public class LoginCheck extends HttpServlet {
+@WebServlet("/ComuPlayerView")
+public class ComuPlayerView extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginCheck() {
+    public ComuPlayerView() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,23 +34,8 @@ public class LoginCheck extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String player_name = request.getParameter("pName");
-		
-		
-		if (player_name != "") {		
-			
-			@SuppressWarnings("unused")
-			Player jugador = new Player(player_name);	
-			
-			PlayerView vistaJugador = new PlayerView(player_name);
-			GameView.getInstance().getPlayersView().add(vistaJugador);			
-			vistaJugador.convertToJson(player_name);
-			
-			response.sendRedirect("Player_view.html");
-
-		}
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
-		
 
 }
