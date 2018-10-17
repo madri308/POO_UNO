@@ -1,30 +1,23 @@
 package servlets;
 
-
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-import MVCStuff.GameView;
-import MVCStuff.PlayerView;
-import gameStuff.Player;
-
 /**
- * Servlet implementation class LoginCheck
+ * Servlet implementation class ComuPlayerView
  */
-@WebServlet("/LoginCheck")
-public class LoginCheck extends HttpServlet {
+@WebServlet("/ComuPlayerView")
+public class ComuPlayerView extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginCheck() {
+    public ComuPlayerView() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,23 +34,8 @@ public class LoginCheck extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String player_name = request.getParameter("pName");
-		String player_ip = request.getRemoteAddr();
-		
-		
-		if (player_name != "") {		
-			
-			Player jugador = new Player(player_name);	
-			
-			PlayerView vistaJugador = new PlayerView(jugador, player_ip);
-
-			GameView.getInstance().getPlayersView().add(vistaJugador);			
-			
-			response.sendRedirect("Player_view.html");
-
-		}
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
-		
 
 }
