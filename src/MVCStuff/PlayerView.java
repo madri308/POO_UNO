@@ -16,9 +16,10 @@ public class PlayerView {//Esta clase es la que se va a enviar a java script
 	List<Card> Hand;
 	int[] numHandPlayers; //El tamaño del array es la cantidad de jugador que hay, y el array en la posicion i es la cantidad de cartas que tiene en la mano el jugador i
 
-	public PlayerView(Player pPlayer, String IpAddress) {
-		playerName = pPlayer.getName();
-		Hand = pPlayer.getHand();
+	public PlayerView(Player pPlayerName, String IpAddress) {
+		playerName = pPlayerName.getName();
+		Hand = pPlayerName.getHand();
+		GameView.getInstance().addPlayerView(this);
 		this.convertToJson(IpAddress);
 	}
 	

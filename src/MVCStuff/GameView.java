@@ -19,4 +19,7 @@ public class GameView {
 		}
 		return view;
 	}
+	public void addPlayerView(PlayerView newPlayerView) {
+		PlayersView.add(newPlayerView);
+	}
 }
