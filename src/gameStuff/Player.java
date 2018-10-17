@@ -15,6 +15,7 @@ public class Player {
 	public Player(String pName) {
 		setName(pName);
 		GameController.getInstance().actionAddMe(this);
+		
 	}
 	public boolean isUNO() {
 		return UNO;

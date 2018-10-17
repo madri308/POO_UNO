@@ -150,7 +150,6 @@ public class GameModel {
 			for(Player player:players) {
 				giveCards(player,7);
 			}
-			System.out.println(actualDeck.getDeck().size());
 		}
 	}
 	

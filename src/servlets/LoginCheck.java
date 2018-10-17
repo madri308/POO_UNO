@@ -43,16 +43,23 @@ public class LoginCheck extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String player_name = request.getParameter("pName");
+		String player_ip = request.getRemoteAddr();
 		
 		
 		if (player_name != "") {		
 			
 			@SuppressWarnings("unused")
 			Player jugador = new Player(player_name);	
+			Player jugador1 = new Player("jo");
+			jugador1.start();
 			
-			PlayerView vistaJugador = new PlayerView(player_name);
+			PlayerView vistaJugador = new PlayerView(jugador);
+			PlayerView vistaJugador1 = new PlayerView(jugador1);
+
 			GameView.getInstance().getPlayersView().add(vistaJugador);			
 			vistaJugador.convertToJson();
+			vistaJugador1.convertToJson();
+
 			
 			response.sendRedirect("Player_view.html");
 
